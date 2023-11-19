@@ -1,0 +1,6 @@
+@speech_master.core_HostAddress = http://localhost:5145
+
+GET {{speech_master.core_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
