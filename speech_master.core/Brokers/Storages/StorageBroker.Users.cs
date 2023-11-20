@@ -1,5 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿//=================================
+// Copyright (c) Tarteeb LLC
+// Check your english speaking easy
+//=================================
+
+using Microsoft.EntityFrameworkCore;
 using speech_master.core.Models;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace speech_master.core.Brokers.Storages
 {

@@ -1,4 +1,9 @@
-﻿using System;
+﻿//=================================
+// Copyright (c) Tarteeb LLC
+// Check your english speaking easy
+//=================================
+
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
