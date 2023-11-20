@@ -5,13 +5,14 @@
 
 using System;
 using System.Collections.Generic;
+using speech_master.core.Models.Speechs;
 
-namespace speech_master.core.Models
+namespace speech_master.core.Models.Users
 {
     public class User
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public List<Speech> Speeches {  get; set; }
+        public List<Speech> Speeches { get; set; }
     }
 }

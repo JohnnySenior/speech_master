@@ -9,13 +9,13 @@
 
   <ItemGroup>
     <Compile Remove="Brokers\LoggingBroker\**" />
-    <Compile Remove="Services\**" />
     <Content Remove="Brokers\LoggingBroker\**" />
-    <Content Remove="Services\**" />
     <EmbeddedResource Remove="Brokers\LoggingBroker\**" />
-    <EmbeddedResource Remove="Services\**" />
     <None Remove="Brokers\LoggingBroker\**" />
-    <None Remove="Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Program.cs~RF510545.TMP" />
   </ItemGroup>
 
   <ItemGroup>

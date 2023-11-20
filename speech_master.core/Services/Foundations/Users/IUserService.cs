@@ -8,14 +8,14 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace speech_master.core.Brokers.Storages
+namespace speech_master.core.Services.Foundations.Users
 {
-    public partial interface IStorageBroker
+    public interface IUserService
     {
         ValueTask<User> InsertUserAsync(User user);
-        IQueryable<User> SelectAllUsers();
+        IQueryable<User> SelectUsers();
         ValueTask<User> SelectUserByIdAsync(Guid userId);
         ValueTask<User> UpdateUserAsync(User user);
-        ValueTask<User> DeleteUserAsync(User user);
+        ValueTask<User> DeleteUserAsync(Guid userId);
     }
 }
