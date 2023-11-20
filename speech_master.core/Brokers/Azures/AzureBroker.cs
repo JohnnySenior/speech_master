@@ -3,8 +3,9 @@
 // Check your english speaking easy
 //=================================
 
-namespace speech_master.core.Brokers.Storages
+namespace speech_master.core.Brokers.AzureBroker
 {
-    public partial interface IStorageBroker
-    { }
+    public class AzureBroker
+    {
+    }
 }

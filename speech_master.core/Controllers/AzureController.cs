@@ -1,4 +1,9 @@
-﻿using RESTFulSense.Controllers;
+﻿//=================================
+// Copyright (c) Tarteeb LLC
+// Check your english speaking easy
+//=================================
+
+using RESTFulSense.Controllers;
 
 namespace speech_master.core.Controllers
 {

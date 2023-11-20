@@ -1,11 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
     <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Brokers\LoggingBroker\**" />
+    <Compile Remove="Services\**" />
+    <Content Remove="Brokers\LoggingBroker\**" />
+    <Content Remove="Services\**" />
+    <EmbeddedResource Remove="Brokers\LoggingBroker\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Brokers\LoggingBroker\**" />
+    <None Remove="Services\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="EFxceptions" Version="0.4.5" />
@@ -25,12 +36,6 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Tynamix.ObjectFiller" Version="1.5.8" />
     <PackageReference Include="Xeption" Version="2.6.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Brokers\LoggingBroker\" />
-    <Folder Include="Services\Foundations\" />
-    <Folder Include="Services\Orchestrations\" />
   </ItemGroup>
 
 </Project>

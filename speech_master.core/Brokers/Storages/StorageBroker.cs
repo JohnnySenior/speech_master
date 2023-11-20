@@ -1,5 +1,13 @@
-﻿using EFxceptions;
+﻿//=================================
+// Copyright (c) Tarteeb LLC
+// Check your english speaking easy
+//=================================
+
+using Castle.Core.Configuration;
+using EFxceptions;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace speech_master.core.Brokers.Storages
 {
@@ -10,7 +18,6 @@ namespace speech_master.core.Brokers.Storages
         public StorageBroker(IConfiguration configuration)
         {
             this.configuration = configuration;
-            //this.Database.Migrate();
             this.Database.EnsureCreated();
         }
         private async ValueTask<T> InsertAsync<T>(T @object)
