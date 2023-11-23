@@ -25,12 +25,13 @@ namespace speech_master.core.Services.Foundations.Users
             this.loggingBroker = loggingBroker;
         }
 
-        public async ValueTask<User> AddUserAsync(User user)
+        public ValueTask<User> AddUserAsync(User user) =>
+        TryCatch(async () =>
         {
             ValidateUserOnAdd(user);
 
             return await this.storageBroker.InsertUserAsync(user);
-        }
+        });
 
         public IQueryable<User> RetrieveUsers() =>
             this.storageBroker.SelectAllUsers();
