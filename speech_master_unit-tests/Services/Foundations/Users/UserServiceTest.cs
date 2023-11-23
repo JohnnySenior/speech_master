@@ -8,9 +8,12 @@ using speech_master.core.Brokers.DateTimes;
 using speech_master.core.Brokers.Loggings;
 using speech_master.core.Brokers.Storages;
 using speech_master.core.Models.Users;
+using speech_master.core.Models.Users.Exceptions;
 using speech_master.core.Services.Foundations.Users;
 using System;
+using System.Linq.Expressions;
 using Tynamix.ObjectFiller;
+using Xeptions;
 
 namespace speech_master_unit_tests.Services.Foundations.Users
 {
@@ -29,7 +32,8 @@ namespace speech_master_unit_tests.Services.Foundations.Users
 
             this.userService =
                 new UserService(
-                    storageBroker: this.storageBrokerMock.Object);
+                    storageBroker: this.storageBrokerMock.Object,
+                    loggingBroker: this.loggingBrokerMock.Object);
         }
 
         private User CreateRandomUser() =>
@@ -46,5 +50,8 @@ namespace speech_master_unit_tests.Services.Foundations.Users
 
             return filler;
         }
+
+        private Expression<Func<Xeption, bool>> SameExceptionAs(Xeption expectedException) =>
+            actualException => actualException.SameExceptionAs(expectedException);
     }
 }

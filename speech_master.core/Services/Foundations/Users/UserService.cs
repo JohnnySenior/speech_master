@@ -3,6 +3,7 @@
 // Check your english speaking easy
 //=================================
 
+using speech_master.core.Brokers.Loggings;
 using speech_master.core.Brokers.Storages;
 using speech_master.core.Models.Users;
 using System;
@@ -14,10 +15,14 @@ namespace speech_master.core.Services.Foundations.Users
     public partial class UserService : IUserService
     {
         private readonly IStorageBroker storageBroker;
+        private readonly ILoggingBroker loggingBroker;
 
-        public UserService(IStorageBroker storageBroker)
+        public UserService(
+            IStorageBroker storageBroker, 
+            ILoggingBroker loggingBroker)
         {
             this.storageBroker = storageBroker;
+            this.loggingBroker = loggingBroker;
         }
 
         public async ValueTask<User> AddUserAsync(User user)
