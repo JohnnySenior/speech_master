@@ -24,7 +24,7 @@ namespace speech_master.core.Services.Foundations.Users
         {
             ValidateUserOnAdd(user);
 
-            throw new NotImplementedException();
+            return await this.storageBroker.InsertUserAsync(user);
         }
 
         public IQueryable<User> RetrieveUsers() =>
