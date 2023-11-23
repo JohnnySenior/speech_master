@@ -3,7 +3,6 @@
 // Check your english speaking easy
 //=================================
 
-using Microsoft.EntityFrameworkCore.Metadata;
 using speech_master.core.Brokers.Storages;
 using speech_master.core.Models.Users;
 using System;
@@ -21,30 +20,38 @@ namespace speech_master.core.Services.Foundations.Users
             this.storageBroker = storageBroker;
         }
 
-        public async ValueTask<User> InsertUserAsync(User user)
+        public async ValueTask<User> AddUserAsync(User user)
         {
             ValidateUserOnAdd(user);
 
-            return await this.storageBroker.InsertUserAsync(user);
-        }
-
-        public IQueryable<User> SelectUsers()
-        {
             throw new NotImplementedException();
         }
 
-        public ValueTask<User> SelectUserByIdAsync(Guid userId)
+        public IQueryable<User> RetrieveUsers() =>
+            this.storageBroker.SelectAllUsers();
+
+        public async ValueTask<User> RetrieveUserByIdAsync(Guid userId)
         {
-            throw new NotImplementedException();
+            ValidateUserId(userId);
+
+            User user = await this.storageBroker.SelectUserByIdAsync(userId);
+
+            return user;
         }
 
-        public ValueTask<User> UpdateUserAsync(User user)
+        public async ValueTask<User> ModifyUserAsync(User user)
         {
-            throw new NotImplementedException();
+            ValidateUserOnModify(user);
+
+            return await this.storageBroker.UpdateUserAsync(user);
         }
-        public ValueTask<User> DeleteUserAsync(Guid userId)
+        public async ValueTask<User> RemoveUserAsync(Guid userId)
         {
-            throw new NotImplementedException();
+            ValidateUserId(userId);
+
+            User user = await this.storageBroker.SelectUserByIdAsync(userId);
+
+            return await this.storageBroker.DeleteUserAsync(user);
         }
 
     }

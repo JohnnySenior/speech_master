@@ -12,10 +12,10 @@ namespace speech_master.core.Services.Foundations.Users
 {
     public interface IUserService
     {
-        ValueTask<User> InsertUserAsync(User user);
-        IQueryable<User> SelectUsers();
-        ValueTask<User> SelectUserByIdAsync(Guid userId);
-        ValueTask<User> UpdateUserAsync(User user);
-        ValueTask<User> DeleteUserAsync(Guid userId);
+        ValueTask<User> AddUserAsync(User user);
+        IQueryable<User> RetrieveUsers();
+        ValueTask<User> RetrieveUserByIdAsync(Guid userId);
+        ValueTask<User> ModifyUserAsync(User user);
+        ValueTask<User> RemoveUserAsync(Guid userId);
     }
 }

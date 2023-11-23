@@ -15,13 +15,22 @@ namespace speech_master.core.Services.Foundations.Users
 {
     public partial class UserService
     {
-
         private void ValidateUserOnAdd(User user)
         {
             Validate(
                 (Rule: IsInvalid(user.Id), Parameter: nameof(User.Id)),
                 (Rule: IsInvalid(user.Name), Parameter: nameof(User.Name)));
         }
+
+        private void ValidateUserOnModify(User user)
+        {
+            Validate(
+                (Rule: IsInvalid(user.Id), Parameter: nameof(User.Id)),
+                (Rule: IsInvalid(user.Name), Parameter: nameof(User.Name)));
+        }
+
+        private void ValidateUserId(Guid userId) =>
+            Validate((Rule: IsInvalid(userId), Parameter: nameof(User.Id)));
 
         private static dynamic IsInvalid(Guid userId) => new
         {
