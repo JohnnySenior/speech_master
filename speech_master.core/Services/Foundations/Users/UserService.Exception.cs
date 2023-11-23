@@ -8,6 +8,7 @@ using speech_master.core.Models.Users;
 using speech_master.core.Models.Users.Exceptions;
 using System;
 using System.Threading.Tasks;
+using Xeptions;
 
 namespace speech_master.core.Services.Foundations.Users
 {
@@ -25,11 +26,15 @@ namespace speech_master.core.Services.Foundations.Users
             {
                 throw CreateAndLogValidationException(nullUserException);
             }
+            catch(InvalidUserException invalidUserException)
+            {
+                throw CreateAndLogValidationException(invalidUserException);
+            }
         }
 
-        private UserValidationException CreateAndLogValidationException(NullUserException nullUserException)
+        private UserValidationException CreateAndLogValidationException(Xeption xeption)
         {
-            var userValidationException = new UserValidationException(nullUserException);
+            var userValidationException = new UserValidationException(xeption);
             this.loggingBroker.LogError(userValidationException);
 
             return userValidationException;

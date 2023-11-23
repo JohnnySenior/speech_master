@@ -19,9 +19,9 @@ namespace speech_master.core.Services.Foundations.Users
         {
             ValidateUserNotNull(user);
 
-            //Validate(
-            //    (Rule: IsInvalid(user.Id), Parameter: nameof(User.Id)),
-            //    (Rule: IsInvalid(user.Name), Parameter: nameof(User.Name)));
+            Validate(
+                (Rule: IsInvalid(user.Id), Parameter: nameof(User.Id)),
+                (Rule: IsInvalid(user.Name), Parameter: nameof(User.Name)));
         }
 
         private void ValidateUserOnModify(User user)
@@ -44,7 +44,7 @@ namespace speech_master.core.Services.Foundations.Users
 
         private static dynamic IsInvalid(string text) => new
         {
-            Condition = String.IsNullOrEmpty(text),
+            Condition = String.IsNullOrWhiteSpace(text),
             Message = "Text is required"
         };
 
@@ -60,17 +60,17 @@ namespace speech_master.core.Services.Foundations.Users
         {
             var invalidUserException = new InvalidUserException();
 
-            foreach((dynamic rule, string parameter) in validations)
+            foreach ((dynamic rule, string parameter) in validations)
             {
-                if(rule.Condition)
+                if (rule.Condition)
                 {
                     invalidUserException.UpsertDataList(
                         key: parameter,
                         value: rule.Message);
                 }
-
-                invalidUserException.ThrowIfContainsErrors();
             }
+
+            invalidUserException.ThrowIfContainsErrors();
         }
     }
 }

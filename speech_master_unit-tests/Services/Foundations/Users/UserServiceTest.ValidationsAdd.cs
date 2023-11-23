@@ -66,6 +66,7 @@ namespace speech_master_unit_tests.Services.Foundations.Users
             invalidUserException.AddData(
                 key: nameof(User.Id),
                 values: "Id is required");
+
             invalidUserException.AddData(
                 key: nameof(User.Name),
                 values: "Text is required");
