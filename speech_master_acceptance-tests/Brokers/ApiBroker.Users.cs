@@ -3,7 +3,7 @@
 // Check your english speaking easy
 //=================================
 
-using speech_master.core.Models.Users;
+using speech_master_acceptance_tests.Models.Users;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
