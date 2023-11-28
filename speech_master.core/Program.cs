@@ -1,31 +1,23 @@
-//=================================
-// Copyright (c) Tarteeb LLC
-// Check your english speaking easy
-//=================================
+// ---------------------------------------------------------------
+// Copyright (c) Coalition of the Good-Hearted Engineers
+// FREE TO USE TO CONNECT THE WORLD
+// ---------------------------------------------------------------
 
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-var builder = WebApplication.CreateBuilder(args);
-
-
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
+namespace speech_master
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+	public class Program
+	{
+		public static void Main(string[] args) =>
+			CreateHostBuilder(args).Build().Run();
+
+		public static IHostBuilder CreateHostBuilder(string[] args)
+		{
+			return Host.CreateDefaultBuilder(args)
+				.ConfigureWebHostDefaults(webBuilder =>
+					webBuilder.UseStartup<Startup>());
+		}
+	}
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
