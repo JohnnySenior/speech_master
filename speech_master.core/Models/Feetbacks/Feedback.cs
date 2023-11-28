@@ -4,8 +4,9 @@
 //=================================
 
 using System;
+using speech_master.core.Models.Speechs;
 
-namespace speech_master.core.Models
+namespace speech_master.core.Models.Feetbacks
 {
     public class Feedback
     {

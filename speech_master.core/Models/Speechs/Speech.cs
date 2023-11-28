@@ -4,8 +4,10 @@
 //=================================
 
 using System;
+using speech_master.core.Models.Feetbacks;
+using speech_master.core.Models.Users;
 
-namespace speech_master.core.Models
+namespace speech_master.core.Models.Speechs
 {
     public class Speech
     {

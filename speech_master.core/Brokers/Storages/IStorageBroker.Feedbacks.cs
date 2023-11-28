@@ -3,12 +3,12 @@
 // Check your english speaking easy
 //=================================
 
-using speech_master.core.Models;
+using speech_master.core.Models.Feetbacks;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Feedback_master.core.Brokers.Storages
+namespace speech_master.core.Brokers.Storages
 {
     public partial interface IStorageBroker
     {
